@@ -1,5 +1,5 @@
 import React from "react";
-import "./Ticket.css";
+import "./Ticket.scss";
 
 const Ticket = ({ ticket }) => {
   const { name, timestamp, values } = ticket;
@@ -18,17 +18,17 @@ const Ticket = ({ ticket }) => {
         </thead>
         <tbody>
           <tr>
-            {values.slice(0, 5).map(value => (
+            {values.slice(0, 5).map((value) => (
               <td key={value}>{value}</td>
             ))}
           </tr>
           <tr>
-            {values.slice(5, 10).map(value => (
+            {values.slice(5, 10).map((value) => (
               <td key={value}>{value}</td>
             ))}
           </tr>
           <tr>
-            {values.slice(10, 15).map(value => (
+            {values.slice(10, 15).map((value) => (
               <td key={value}>{value}</td>
             ))}
           </tr>

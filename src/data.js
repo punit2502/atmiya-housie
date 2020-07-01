@@ -26,10 +26,10 @@ export default [
   "Haridham ",
   "Suruchi ",
   "Premal",
-  "Vadhu padtu kam kare",
+  "Vadhu padtu kam    kare",
   "Karkasar yukt jivan",
   "Mathe padine jive",
-  "Sarvopari",
+  "Aanirdesh",
   "Nih swadi",
   "Garju",
   "Nih swarthi",
@@ -98,5 +98,5 @@ export default [
   "Swamini vaato",
   "Akshardham",
   "Prabhudas bhai",
-  "Sevak"
+  "Sevak",
 ];
