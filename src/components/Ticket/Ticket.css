@@ -11,10 +11,22 @@ td {
   border: 1px solid black;
 }
 
+tbody {
+  margin: 0 auto;
+}
+
+tbody tr {
+  display: grid;
+  grid-template: 1fr / repeat(5, 20%);
+  height: 6rem;
+  width: 50rem;
+}
+
 td {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
-  height: 3rem;
-  width: 20rem;
 }
 
 thead tr th,

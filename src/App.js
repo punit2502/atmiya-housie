@@ -20,20 +20,11 @@ const getRandomNumbers = (max = data.length, min = 0) => {
 };
 
 const formatDate = (date = new Date()) => {
-  const day = date
-    .getDate()
-    .toString()
-    .padStart(2, "0");
-  const month = date
-    .getMonth()
-    .toString()
-    .padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
+  const month = date.getMonth().toString().padStart(2, "0");
   const year = date.getFullYear();
   let hours = date.getHours();
-  const minutes = date
-    .getMinutes()
-    .toString()
-    .padStart(2, "0");
+  const minutes = date.getMinutes().toString().padStart(2, "0");
   const ampm = hours >= 12 ? "PM" : "AM";
 
   hours = hours ? hours % 12 : 12; // the hour '0' should be '12'
@@ -43,9 +34,17 @@ const formatDate = (date = new Date()) => {
 };
 
 const handleDownload = () => {
-  html2canvas(document.querySelector("#ticket-table")).then(canvas => {
-    canvas.toBlob(blob => {
+  const el = document.querySelector("#ticket-table");
+
+  el.style.overflow = "visible";
+
+  html2canvas(el, {
+    width: el.scrollWidth,
+    height: el.scrollHeight,
+  }).then((canvas) => {
+    canvas.toBlob((blob) => {
       saveAs(blob, "atmiya-housie.png");
+      el.style.overflow = "auto";
     });
   });
 };
@@ -54,18 +53,18 @@ function App() {
   const [name, setName] = useState("");
   const [ticket, setTicket] = useState();
 
-  const handleFormSubmit = e => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
     const values = [];
-    getRandomNumbers().forEach(number => values.push(data[number]));
+    getRandomNumbers().forEach((number) => values.push(data[number]));
 
     setTicket({
       name: name
         .split(" ")
-        .map(e => e.charAt(0).toUpperCase() + e.slice(1, e.length))
+        .map((e) => e.charAt(0).toUpperCase() + e.slice(1, e.length))
         .join(" "), // capitalize name
       timestamp: formatDate(),
-      values
+      values,
     });
   };
 
@@ -98,7 +97,7 @@ function App() {
               type="text"
               value={name}
               placeholder="Enter your name"
-              onChange={e => setName(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
               required
             />
             <input type="submit" value="Submit" />
