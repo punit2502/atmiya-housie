@@ -7,6 +7,7 @@
 }
 
 .draw ul {
+  text-align: left;
   list-style-type: none;
   font-size: 2rem;
 }

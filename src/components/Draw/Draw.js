@@ -14,18 +14,33 @@ const Draw = () => {
       setNumbers([...numbers, number]);
       setLastNumber(number);
 
-      setValues([...numbers, number].map((e) => data[e]).sort());
+      setValues(
+        [...numbers, number]
+          .sort(function (a, b) {
+            return a - b;
+          })
+          .map((e) => {
+            return { num: e + 1, val: data[e] };
+          })
+      );
     }
+
     return null;
   };
 
   return (
     <div className="draw">
-      <h1>{lastNumber ? data[lastNumber] : "Atmiya Housie"}</h1>
+      <h1>
+        {lastNumber
+          ? `${lastNumber + 1}. ${data[lastNumber]}`
+          : "Atmiya Housie"}
+      </h1>
       <button onClick={() => getRandomNumbers(0, data.length)}>Draw</button>
       <ul>
-        {values.map((value) => (
-          <li key={value}>{value}</li>
+        {values.map(({ num, val }) => (
+          <li key={num}>
+            {num}. {val}
+          </li>
         ))}
       </ul>
     </div>
