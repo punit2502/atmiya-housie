@@ -23,7 +23,9 @@ const formatDate = (date = new Date()) => {
 };
 
 const handleDownload = () => {
-  const el = document.querySelector("table");
+  const el = document.querySelector("#ticket-table");
+
+  el.style.overflow = "visible";
 
   html2canvas(el, {
     width: el.scrollWidth,
@@ -31,6 +33,7 @@ const handleDownload = () => {
   }).then((canvas) => {
     canvas.toBlob((blob) => {
       saveAs(blob, "atmiya-housie.png");
+      el.style.overflow = "auto";
     });
   });
 };
