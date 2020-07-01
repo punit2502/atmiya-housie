@@ -24,7 +24,7 @@ const Draw = () => {
           })
       );
     } else {
-      if (numbers.length !== data.length - 1) getRandomNumbers(0, data.length);
+      if (numbers.length < data.length) getRandomNumbers(0, data.length);
       else alert("Game over");
     }
 
