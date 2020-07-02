@@ -43,7 +43,7 @@ const Housie = () => {
     e.preventDefault();
     const values = [];
     getTicketsNumber(0, data.length).forEach((number) =>
-      values.push(data[number])
+      values.push({ number: number + 1, value: data[number] })
     );
 
     setTicket({

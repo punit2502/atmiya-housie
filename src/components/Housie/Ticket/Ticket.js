@@ -18,18 +18,27 @@ const Ticket = ({ ticket }) => {
         </thead>
         <tbody>
           <tr>
-            {values.slice(0, 5).map((value) => (
-              <td key={value}>{value}</td>
+            {values.slice(0, 5).map(({ value, number }) => (
+              <td key={value}>
+                {value}
+                <span>{number}</span>
+              </td>
             ))}
           </tr>
           <tr>
-            {values.slice(5, 10).map((value) => (
-              <td key={value}>{value}</td>
+            {values.slice(5, 10).map(({ value, number }) => (
+              <td key={value}>
+                {value}
+                <span>{number}</span>
+              </td>
             ))}
           </tr>
           <tr>
-            {values.slice(10, 15).map((value) => (
-              <td key={value}>{value}</td>
+            {values.slice(10, 15).map(({ value, number }) => (
+              <td key={value}>
+                {value}
+                <span>{number}</span>
+              </td>
             ))}
           </tr>
         </tbody>
