@@ -33,6 +33,8 @@ const handleDownload = () => {
       el.style.overflow = "auto";
     });
   });
+
+  window.gtag("event", "Download");
 };
 
 const Housie = () => {
@@ -54,6 +56,8 @@ const Housie = () => {
       timestamp: formatDate(),
       values,
     });
+
+    window.gtag("event", "Create");
   };
 
   return (
